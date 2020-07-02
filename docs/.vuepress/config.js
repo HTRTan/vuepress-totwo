@@ -18,8 +18,36 @@ module.exports = {
           { text: '简介', link: '/md/introduce/' },
           { text: 'ToTwoBBS', link: 'https://bbs.mytotwo.cn/' },
         ],
-        sidebarDepth: 2,
-        sidebar: 'auto',
+        sidebar: [
+            {
+              title: '简介',   
+              path: '/md/introduce/', 
+              collapsable: false, 
+              sidebarDepth: 1
+            },
+            {
+              title: '测试',
+              children: [
+                {
+                    title: '测试',   
+                    path: '/md/test/', 
+                    collapsable: false, 
+                    sidebarDepth: 1
+                }
+              ]
+            }
+        ],
+        smoothScroll: true,
         lastUpdated: '最后更新时间',
-    }
+        docsRepo: 'https://gitee.com/HTRTan/vuepress-totwo',
+        docsDir: 'docs',
+        docsBranch: 'master',
+        editLinks: true,
+        editLinkText: '完善此页！'
+    },
+    plugins: [
+        ['@vuepress/plugin-back-to-top' , true],
+        ['@vuepress/plugin-medium-zoom' , true],
+        ['vuepress-plugin-code-copy', true]
+    ]
 }
